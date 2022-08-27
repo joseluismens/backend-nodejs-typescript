@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+#sidebar,
+#header,
+#sidebar2 {
+    background: linear-gradient(144deg, #0f58a4, #1a9fe9) !important;
+}
+
+ul.pagination li>.page.active,
+ul.pagination li.active>.page {
+    background-color: #0f58a4;
+    color: white;
+}

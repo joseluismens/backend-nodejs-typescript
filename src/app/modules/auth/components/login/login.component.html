@@ -1,0 +1,69 @@
+<div style=" height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;">
+    <div class="row ">
+
+        <mat-card class="mt-4" style="border-radius: 20px; width: 400px;">
+            <mat-card-title class="text-center">Iniciar sesión</mat-card-title>
+            <mat-card-content class="mt-4">
+                <form class="mb-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+
+                    <div class="row center">
+
+                        <div class="col s12 ">
+                            <mat-form-field appearance="outline" style="width:100% ;">
+                                <mat-label>Correo electrónico</mat-label>
+                                <input matInput required formControlName="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                <mat-error *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']">
+                                    El correo electónico es <strong>requerido</strong>
+                                </mat-error>
+                                <mat-error *ngIf="loginForm.get('email')?.errors?.['pattern']">
+                                    Ingrese un formato válido
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+
+                    <div class="row center">
+
+                        <div class="col s12 ">
+                            <mat-form-field appearance="outline" style="width:100% ;">
+                                <mat-label>Contraseña</mat-label>
+                                <input matInput type="password" formControlName="password">
+
+
+                                <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">
+                                    La Contraseña es <strong>requerida</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p> <a [routerLink]="['/forgot']">¿Olvidaste tu contraseña?</a>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2">
+                        <div class="col-md-12 text-center">
+                            <button mat-raised-button color="primary" [disabled]="loginForm.invalid" class="col-5 " style="color: white !important">Ingresar</button>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 text-center mt-2">
+                            <p>Aún no tienes una cuenta? <a [routerLink]="['/register']">Registrate</a>
+                            </p>
+
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
