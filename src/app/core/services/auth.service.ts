@@ -94,8 +94,8 @@ export class AuthService {
     }
   }
 
-  isInvestigator(){
-    if(this.role == 'INVESTIGATOR'){
+  isResearcher(){
+    if(this.role == 'RESEARCHER'){
       return true;
     }else{
       return false;

@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { InvestigatorRoutingModule } from './investigator-routing.module';
 import { AddProjectRequestComponent } from './components/add-project-request/add-project-request.component';
 import { AllProjectsComponent } from './components/all-projects/all-projects.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 
 
@@ -14,7 +16,8 @@ import { AllProjectsComponent } from './components/all-projects/all-projects.com
   ],
   imports: [
     CommonModule,
-    InvestigatorRoutingModule
+    InvestigatorRoutingModule,
+    SharedModule
   ]
 })
 export class InvestigatorModule { }

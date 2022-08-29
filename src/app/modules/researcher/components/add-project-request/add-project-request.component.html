@@ -1,1 +1,203 @@
-<p>add-project-request works!</p>
+<!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>--> 
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper class="mt-4" style="border-radius: 25px ">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Datos del investigador</ng-template>
+  
+        <mat-card class="example-card mt-4">
+          <mat-card-title>Datos del investigador</mat-card-title>
+          <mat-card-content>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline" style="width: 100% ;">
+                            <mat-label>Nombre del investigador</mat-label>
+                            <input matInput placeholder="Ingrese nombre" formControlName="name" required >
+                          </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="outline"  style="width: 100% ;">
+                            <mat-label>Apellido del investigador</mat-label>
+                            <input matInput placeholder="Ingrese apellido" formControlName="surname" required >
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline" style="width: 100% ;">
+                            <mat-label>Centro de investigación</mat-label>
+                            <input matInput placeholder="Ingrese centro de investigación" formControlName="center" required >
+                          </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="outline"  style="width: 100% ;">
+                            <mat-label>Tema de investigación</mat-label>
+                            <input matInput placeholder="Ingrese tema a investigar" formControlName="topic" required >
+                          </mat-form-field>
+                    </div>
+                </div>
+               
+            </div>
+           
+
+
+
+            
+          </mat-card-content>
+        </mat-card>
+  
+       
+        <div class="d-flex justify-content-center mt-3">
+          <button mat-button matStepperNext color="primary">Siguiente <mat-icon>arrow_forward</mat-icon></button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="demoForm">
+      <form [formGroup]="demoForm" class="center mt-4">
+        <ng-template matStepLabel>Carga de documentos</ng-template>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+              <div class="form-group">
+                <input type="file" 
+                style="display: none;"
+                #fileUpload
+                class="custom-file-input form-control" 
+                id="files" multiple (change)="detectFiles($event)" 
+                accept="application/pdf">
+  
+                <div class="file-upload" class="mb-5">
+            
+                  {{"Subir documentos"}}
+               
+                   <button mat-mini-fab color="primary" class="upload-btn"
+                     (click)="fileUpload.click()">
+                       <mat-icon>attach_file</mat-icon>
+                   </button>
+  
+                   
+               </div>
+  
+                <p-table [value]="fotos.value" >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            
+                            <th>Archivo</th>
+                            <th>Tamaño</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-photo let-rowIndex="rowIndex" >
+                        <tr>
+                            <td> <i class="pi pi-file-pdf" style="color: red ;"></i> {{  photo.file.name }}</td>
+                            <td> {{  photo.file.size   }} </td>
+                            <td>
+                              <mat-form-field appearance="fill">
+                                <mat-label>Seleccione tipo de documento</mat-label>
+                                <mat-select (selectionChange)="selectType($event.value, photo, rowIndex)">
+                                  <mat-option *ngFor="let docu of documentos" [value]="docu.value">
+                                    {{docu.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              
+                             
+                              
+                            </td>
+                            <td>
+                             
+  
+                              <button mat-mini-fab  color="warn" class="mb-3" (click)="removePhoto(rowIndex)" aria-label="Example icon button with a delete icon">
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                
+              </div>
+  
+             <!--  <div class="images-preview mt-2" *ngIf="photos.length">
+                <div class="row">
+                  <div class="col-md-6 col-lg-3	 col-xl-2" formArrayName="photos" *ngFor="let photo of photos.controls; let i = index;">
+                    <div class="card mb-3" [formGroupName]="i">
+            
+                    <button type="button" (click)="removePhoto(i)" class="btn btn-danger remove-btn">x</button> 
+                      <button mat-mini-fab color="primary" class="btn-material"
+                      (click)="removePhoto(i)">
+                       <mat-icon>close</mat-icon>
+                   </button>
+                      <pre>{{photo.controls.file.value.name}}</pre>
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" class="card-img-top" alt="Image Preview"> 
+                   <img [src]="photo.controls.url.value" class="card-img-top" alt="Image Preview">
+                    </div>
+                  </div>
+                </div>
+              </div> --> 
+  
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-3 d-flex justify-content-center">
+          <button mat-button  matStepperPrevious color="primary" > <mat-icon>arrow_back</mat-icon> Volver</button>
+          <button [disabled]="demoForm.controls['photos'].length == 0" mat-button matStepperNext color="primary" >Siguiente <mat-icon>arrow_forward</mat-icon></button>
+        </div>
+       
+          
+      
+      </form>
+    </mat-step >
+    <mat-step>
+      <ng-template matStepLabel  >Confirmar datos</ng-template>
+      <mat-card class="example-card mt-4">
+        <mat-card-title>Confirmar</mat-card-title>
+          <mat-card-content>
+                
+                <mat-list>
+                    <div mat-subheader>Datos del investigador</div>
+                    
+                    
+                    <mat-list-item>
+                        <div mat-line><strong>Investigador: </strong> </div>
+                        <div mat-line>{{firstFormGroup.value.name}} {{firstFormGroup.value.surname}}</div>
+                      </mat-list-item>
+
+                    <mat-list-item>
+                      <div mat-line><strong>Centro de investigación: </strong> </div>
+                      <div mat-line> {{firstFormGroup.value.center}} </div>
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        <div mat-line><strong>Tema de investigación: </strong> </div>
+                        <div mat-line> {{firstFormGroup.value.topic}} </div>
+                      </mat-list-item>
+
+                    <mat-divider></mat-divider>
+
+                    <div mat-subheader>Documentos</div>
+                    <mat-list-item *ngFor="let document of documents">
+                        <mat-icon mat-list-icon>description</mat-icon>
+                      <div mat-line>{{document.name}}</div>
+                      <div mat-line> {{document.type }} </div>
+                    </mat-list-item>
+                    
+                    
+                  </mat-list>
+
+          </mat-card-content>
+      </mat-card>
+      <div class="mt-3 d-flex justify-content-center">
+        <button mat-button matStepperPrevious color="primary"> <mat-icon>arrow_back</mat-icon>  Volver</button>
+      <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->  
+      <button mat-button (click)="onFinish()" color="primary">Enviar <mat-icon>done</mat-icon>  </button>
+  
+      </div>
+    </mat-step>
+  </mat-stepper>
+  
+  

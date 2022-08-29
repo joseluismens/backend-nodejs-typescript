@@ -6,6 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +22,13 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { InputTextModule } from 'primeng/inputtext';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatCardModule} from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 
 
@@ -51,6 +59,13 @@ import { InputTextModule } from 'primeng/inputtext';
         ToastModule,
         InputTextModule,
         ProgressBarModule,
+        MatStepperModule,
+        MatCardModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatInputModule,
+        MatChipsModule
 
 
     ],
@@ -67,7 +82,7 @@ import { InputTextModule } from 'primeng/inputtext';
         MatSelectModule,
         MatFormFieldModule,
         DropdownModule,
-        MatIconModule,
+      
         CalendarModule,
         SliderModule,
         DialogModule,
@@ -78,6 +93,14 @@ import { InputTextModule } from 'primeng/inputtext';
         ToastModule,
         InputTextModule,
         ProgressBarModule,
+        MatStepperModule,
+        MatCardModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatInputModule,
+        MatChipsModule
+        
         
     ]
 })

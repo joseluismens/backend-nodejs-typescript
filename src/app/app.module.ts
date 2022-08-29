@@ -12,6 +12,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { PagesModule } from './modules/dashboard/pages.module';
 import { NotfoundpageComponent } from './shared/components/notfoundpage/notfoundpage.component';
 import { PresidentModule } from './modules/president/president.module';
+import { InvestigatorModule } from './modules/researcher/investigator.module';
 
 
 
@@ -25,7 +26,7 @@ import { PresidentModule } from './modules/president/president.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-  
+    InvestigatorModule,
     PagesModule,
     AuthModule,
     SharedModule,

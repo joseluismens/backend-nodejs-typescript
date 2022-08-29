@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllProjectsComponent } from '../president/components/all-projects/all-projects.component';
 import { AllProjectsComponent as AllProjectComponentEditor } from '../publisher/components/all-projects/all-projects.component';
-import { AllProjectsComponent as AllProjectComponentInvestigator } from '../researcher/components/all-projects/all-projects.component';
+import { AllProjectsComponent as AllProjectComponenResearcher } from '../researcher/components/all-projects/all-projects.component';
 import { AllProjectsComponent as AllProjectsComponentReviewer } from '../reviewer/components/all-projects/all-projects.component';
 import { ProjectRequestComponent } from '../president/components/project-request/project-request.component';
 import { ProjectRequestComponent as ProjectRequestComponentEditor} from '../publisher/components/project-request/project-request.component';
@@ -78,17 +78,18 @@ const routes: Routes = [
     ]
   },
   {
-    path : 'investigator',
+    path : 'investigador',
     component:PagesComponent,
 
     children : [
       {
-        path: 'addrequest',
-        component : AddProjectRequestComponent
+        path: 'solicitud',
+        component : AddProjectRequestComponent,
+        data: { breadcrumb: 'crear postulación' , title : 'Crear postulación'}
       },
       {
-        path: 'allprojects',
-        component : AllProjectComponentInvestigator
+        path: 'proyectos',
+        component : AllProjectComponenResearcher
       },
     ]
   },
